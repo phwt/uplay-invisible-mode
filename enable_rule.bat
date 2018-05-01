@@ -1,0 +1,1 @@
+netsh advfirewall firewall set rule name="UplayOfflineMode" new enable=yes

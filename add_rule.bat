@@ -1,0 +1,1 @@
+netsh advfirewall firewall add rule name="UplayOfflineMode" dir=out action=block program="%ProgramFiles% (x86)\Ubisoft\Ubisoft Game Launcher\upc.exe" enable=no
