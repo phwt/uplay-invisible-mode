@@ -22,9 +22,9 @@ Administrator rights is required to run command.
 
 ### 1. Run `add_rule.bat` with admin rights
 
-This will simply create rule named `UplayOfflineMode` in Windows Firewall Outbound Rule.
+The command will ask you did you install Uplay in its default location or not. If not you need to manually input the location of `upc.exe` in your PC
 
-Note : You need to edit `upc.exe` path if you didn't install Uplay Client in default location. (Default is `%ProgramFiles% (x86)\Ubisoft\Ubisoft Game Launcher\upc.exe`)
+After that "UplayOfflineMode" ourbound rules will be created.
 
 ### 2. Run `enable_rule.bat` with admin rights
 
