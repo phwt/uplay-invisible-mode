@@ -1,6 +1,15 @@
 @echo off
-echo Default uplay directory is "%ProgramFiles% (x86)\Ubisoft\Ubisoft Game Launcher\upc.exe".
-CHOICE /M "Use default uplay directory?"
+
+ net session >nul 2>&1
+ if %errorLevel% == 0 (
+	echo Default uplay directory is "%ProgramFiles% (x86)\Ubisoft\Ubisoft Game Launcher\upc.exe".
+ ) else (
+	echo Administrator Priviliages required to run this task.
+	pause
+	exit
+ )
+
+CHOICE /M "Use default Uplay directory?"
 IF "%ERRORLEVEL%"=="1" GOTO UserDefault
 IF "%ERRORLEVEL%"=="2" GOTO UserCustom
 GOTO end
