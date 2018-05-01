@@ -3,7 +3,7 @@
 net session >nul 2>&1
 if %errorLevel% == 0 (
 	netsh advfirewall firewall set rule name="UplayOfflineMode" new enable=no
-	echo "UplayOfflineMode" rule enabled
+	echo "UplayOfflineMode" rule disabled
 	pause
 ) else (
 	echo Administrator Priviliages required to run this task.
