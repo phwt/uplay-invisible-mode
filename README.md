@@ -34,7 +34,7 @@ After you finish testing you can run `disable_rule.bat`(with admin rights) to di
 
 ## How to use
 
-After you have done the set-up step. All you have to do is use `enable_rule.bat` to enable offine mode and `disable_rule.bat` to disable offline mode.
+After you have done the set-up step. All you have to do is use `enable_rule.bat` to enable offline mode and `disable_rule.bat` to disable offline mode.
 
 Note : Don't enable before you launch the game or your game will not be able to launch. And disable it before you close the game (for cloud synchronization)
 
