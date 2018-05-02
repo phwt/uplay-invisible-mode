@@ -22,9 +22,9 @@ Administrator rights is required to run command.
 
 ### 1. Run `add_rule.bat` with admin rights
 
-This will simply create rule named `UplayOfflineMode` in Windows Firewall Outbound Rule.
+The command will ask you did you install Uplay in its default location or not. If not you need to manually input the location of `upc.exe` in your PC
 
-Note : You need to edit `upc.exe` path if you didn't install Uplay Client in default location. (Default is `%ProgramFiles% (x86)\Ubisoft\Ubisoft Game Launcher\upc.exe`)
+After that "UplayOfflineMode" ourbound rules will be created.
 
 ### 2. Run `enable_rule.bat` with admin rights
 
@@ -34,8 +34,11 @@ After you finish testing you can run `disable_rule.bat`(with admin rights) to di
 
 ## How to use
 
-After you have done the set-up step. All you have to do is use `enable_rule.bat` to enable offine mode and `disable_rule.bat` to disable offline mode.
+After you have done the set-up step.
 
-Note : Don't enable before you launch the game or your game will not be able to launch. And disable it before you close the game (for cloud synchronization)
+- Use `enable_rule.bat` to enable offline/invisible mode. (With admin rights)
+- Use `disable_rule.bat` to disable offline/invisible mode. (With admin rights)
+
+Note: Don't enable before you launch the game or your game will not be able to launch. And disable it before you close the game (for cloud synchronization)
 
 Enabling this will not instantly put you in offline mode. It may took about 30s - 1m for you to be completely offline. Same for disabling it took about 30s - 1m to appear online again.
