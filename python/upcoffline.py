@@ -14,10 +14,8 @@ if not chkAdmin():
     sys.exit()
 
 def curSts():
-    """ Return current status of the rule"""
     return [subprocess.call('netsh advfirewall firewall show rule name="UplayOfflineMode" | findstr "no rules"', shell=True), \
     subprocess.call('netsh advfirewall firewall show rule name="UplayOfflineMode" | findstr "No" | findstr /V "Edge"', shell=True)]
-# subprocess.call('netsh advfirewall firewall set rule name="UplayOfflineMode" new enable=no', shell=True)
 
 def enable():
     subprocess.call('netsh advfirewall firewall set rule name="UplayOfflineMode" new enable=yes', shell=True)
