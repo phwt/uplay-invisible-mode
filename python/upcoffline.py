@@ -14,7 +14,7 @@ if not chkAdmin():
     sys.exit()
 
 def addRule():
-    path = "\"%ProgramFiles% (x86)\\Ubisoft\\Ubisoft Game Launcher\\upc.exe\""
+    path = "\"%ProgramFiles%\\Ubisoft\\Ubisoft Game Launcher\\upc.exe\""
     if not os.path.isfile('C:\\Program Files (x86)\\Ubisoft\\Ubisoft Game Launcher\\upc.exe'):
         print("\"upc.exe\" is not located in its default location")
         print("(Default: \"C:\\Program Files (x86)\\Ubisoft\\Ubisoft Game Launcher\\upc.exe\")")
