@@ -77,4 +77,4 @@ If all this applies your Uplay are now completely offlined! Enjoy!
 
 ### 5. When you are done.
 
-When you have finished your game. Quit the game then type in `0` to disable the rule. Same for enabling you will not instantly online. After Uplay client has established connection with the server. You can now sync your progress with the cloud.
+When you have finished your game. Quit the game then type in `0` and press `Enter` to disable the rule. Same for enabling you will not instantly online. After Uplay client has established connection with the server. You can now sync your progress with the cloud.
