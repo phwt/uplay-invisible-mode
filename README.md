@@ -41,28 +41,40 @@ The status will be shown and you are now ready to use!
 
 ## How to use
 
-### 1. Run `upcoffline.exe` with admin rights
+### 1. Launch Uplay and the game.
+
+You need to launch Uplay and game before enable the rule or you will not be able to establish connection with its server. You can continue when you game is fully started.
+
+**In this phase your Uplay will still appear online to your friends**
+
+### 2. Run `upcoffline.exe` with admin rights
 
 The status will be shown similar to this:
 
     Current Status
-    Enabled: <Your current status>
+    Enabled: False
     
     Change Rule Status (0 = Disable, 1 = Enable, -1 = Exit): 
 
-### 2. Enable or Disable the rule
+### 3. Enable the rule
 
-You can config the rule by typing in `1` to enable or `0` for disable and then press `Enter`
-
-After that the program will show you your new rule status.
+Typing `1` then press `Enter` and the status will be shown similar to this:
 
     Rule Status Updated
     Enabled: True
     
     Change Rule Status (0 = Disable, 1 = Enable, -1 = Exit):
 
-### 3. Exit
-    
+**This will not instantly offline your Uplay status. It may took about 30s to 1m for you to completely appear offline to your friends.**
+
+### 4. Enjoy your game!
+
+You can check the status by noticing Error Text appear at the bottom, Friend list appear as `Connecting...` and Store inaccessible.
+
+![Example](https://raw.githubusercontent.com/phwt/uplay-offline-mode/master/offline_example.jpg)
+
+If all this applies your Uplay are now completely offlined! Enjoy!
+
 When you are done type in anything except `0` or `1` or just simply press the `X` button on top-right corner and the process will be terminated.
 
 ### Notes
