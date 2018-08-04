@@ -17,25 +17,55 @@ https://github.com/phwt/uplay-offline-mode/raw/master/python/build/exe.win32-3.6
 
 Administrator rights is required to run the program.
 
-### 1. Run `add_rule.bat` with admin rights
+### 1. Extract ALL files from .zip file
 
-The command will ask you did you install Uplay in its default location or not. If not you need to manually input the location of `upc.exe` in your PC
+Make sure you have all these files and folder.
 
-After that "UplayOfflineMode" ourbound rules will be created.
+    - lib
+    - python36.dll
+    - upcoffline.exe
 
-### 2. Run `enable_rule.bat` with admin rights
+### 2. Run `upcoffline.exe` with admin rights
 
-Rule is disabled by default you need to run this to enable it.
+You will get `Windows Firewall Outbound Rules "UplayOfflineMode" added` if your `upc.exe` file is in its default location. (Default location is: `C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\upc.exe`)
 
-After you finish testing you can run `disable_rule.bat`(with admin rights) to disable them.
+If not you will be prompted into pointing out the correct path of the `upc.exe` files.
+
+*Example Valid Path - `K:/My Program/Ubisoft Game Launchery/upc.exe`*
+
+**After that Windows Firewall Outbound rules "UplayOfflineMode" will be created.**
+
+### 3. Finish!
+
+The status will be shown and you are now ready to use!
 
 ## How to use
 
-After you have done the set-up step.
+### 1. Run `upcoffline.exe` with admin rights
 
-- Use `enable_rule.bat` to enable offline/invisible mode. (With admin rights)
-- Use `disable_rule.bat` to disable offline/invisible mode. (With admin rights)
+The status will be shown similar to this:
 
-Note: Don't enable before you launch the game or your game will not be able to launch. And disable it before you close the game (for cloud synchronization)
+    Current Status
+    Enabled: <Your current status>
+    
+    Change Rule Status (0 = Disable, 1 = Enable, -1 = Exit): 
 
-Enabling this will not instantly put you in offline mode. It may took about 30s - 1m for you to be completely offline. Same for disabling it took about 30s - 1m to appear online again.
+### 2. Enable or Disable the rule
+
+You can config the rule by typing in `1` to enable or `0` for disable and then press `Enter`
+
+After that the program will show you your new rule status.
+
+    Rule Status Updated
+    Enabled: True
+    
+    Change Rule Status (0 = Disable, 1 = Enable, -1 = Exit):
+
+### 3. Exit
+    
+When you are done type in anything except `0` or `1` or just simply press the `X` button on top-right corner and the process will be terminated.
+
+### Notes
+
+- Don't enable before you launch the game or your game will not be able to launch. And disable it before you close the game (for cloud synchronization)
+- Enabling this will not instantly put you in offline mode. It may took about 30s - 1m for you to be completely offline. Same for disabling it took about 30s - 1m to appear online again.
