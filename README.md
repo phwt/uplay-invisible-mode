@@ -17,11 +17,23 @@ https://github.com/phwt/uplay-offline-mode/raw/master/python/build/exe.win32-3.6
 
 Administrator rights is required to run the program.
 
-### 1. Run `add_rule.bat` with admin rights
+### 1. Extract ALL files from .zip file
 
-The command will ask you did you install Uplay in its default location or not. If not you need to manually input the location of `upc.exe` in your PC
+Make sure you have all these files and folder.
 
-After that "UplayOfflineMode" ourbound rules will be created.
+    - lib
+    - python36.dll
+    - upcoffline.exe
+
+### 2. Run `upcoffline.exe` with admin rights
+
+You will get `Windows Firewall Outbound Rules "UplayOfflineMode" added` if your `upc.exe` file is in its default location. (Default location is: `C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\upc.exe`)
+
+If not you will be prompted into pointing out the correct path of the `upc.exe` files.
+
+*Example Valid Path - `K:/My Program/Ubisoft Game Launchery/upc.exe`*
+
+**After that Windows Firewall Outbound rules "UplayOfflineMode" will be created.**
 
 ### 2. Run `enable_rule.bat` with admin rights
 
