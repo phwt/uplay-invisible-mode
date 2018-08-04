@@ -10,15 +10,12 @@ Disabled Features
 - Friend List (including invitation to game)
 - News Section, Store
 
-## Set-Up Guide
+## Set-up
 
-There are 3 .bat files in this repo.
+First download `upc_invisible.zip` [here!](
+https://github.com/phwt/uplay-offline-mode/raw/master/python/build/exe.win32-3.6/upc_invisible.zip)
 
-- `add_rule.bat` - Add rule to Windows Firewall
-- `enable_rule.bat` - Enable rule
-- `disable_rule.bat` - Disable rule
-
-Administrator rights is required to run command.
+Administrator rights is required to run the program.
 
 ### 1. Run `add_rule.bat` with admin rights
 
