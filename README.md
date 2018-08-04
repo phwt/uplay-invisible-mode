@@ -10,6 +10,10 @@ Disabled Features
 - Friend List (including invitation to game)
 - News Section, Store
 
+## How it works?
+
+The program will block connection of a Uplay Client which transmit your current status to your friend. But your game connection is not blocked so you can sill access online services in your game.
+
 ## Set-up
 
 First download `upc_invisible.zip` [here!](
