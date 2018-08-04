@@ -19,25 +19,16 @@ def curSts():
     # return [subprocess.call('netsh advfirewall firewall show rule name="UplayOfflineMode" | findstr "no rules"', shell=True, stdout=DEVNULL, stderr=DEVNULL), \
     # subprocess.call('netsh advfirewall firewall show rule name="UplayOfflineMode" | findstr "No" | findstr /V "Edge"', shell=True, stdout=DEVNULL, stderr=DEVNULL)]
 
-def enable():
-    subprocess.call('netsh advfirewall firewall set rule name="UplayOfflineMode" new enable=yes', shell=True, stdout=DEVNULL, stderr=DEVNULL)
-    print("Rule Status Updated")
-    curSts()
-
-def disable():
-    subprocess.call('netsh advfirewall firewall set rule name="UplayOfflineMode" new enable=no', shell=True, stdout=DEVNULL, stderr=DEVNULL)
-    print("Rule Status Updated")
-    curSts()
-
 print("Current Status")
-# print("Rule Added: " + "True" if curSts()[0] else "False")
 curSts()
 
 while True:
     sts = input("\nChange Rule Status (0 = Disable, 1 = Enable, Return = Exit): ")
     if sts == "0":
-        disable()
+        subprocess.call('netsh advfirewall firewall set rule name="UplayOfflineMode" new enable=no', shell=True, stdout=DEVNULL, stderr=DEVNULL)
     elif sts == "1":
-        enable()
+        subprocess.call('netsh advfirewall firewall set rule name="UplayOfflineMode" new enable=yes', shell=True, stdout=DEVNULL, stderr=DEVNULL)
     else:
         break
+    print("Rule Status Updated")
+    curSts()
