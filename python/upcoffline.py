@@ -13,11 +13,22 @@ if not chkAdmin():
     print("The requested operation requires elevation (Run as administrator).")
     sys.exit()
 
+def addRule():
+    if not os.path.isfile('C:\\Program Files (x86)\\Ubisoft\\Ubisoft Game Launcher\\upce.exe'):
+        print("\"upc.exe\" is not located in its default location")
+        print("(Default: \"C:\\Program Files (x86)\\Ubisoft\\Ubisoft Game Launcher\\upc.exe\")")
+        print("\nPlease enter full path to \"upc.exe\"")
+        input("> ")
+    print("Adding \"UplayOfflineMode\" to Windows Firewall Outbound Rules")
+
+if not subprocess.call('netsh advfirewall firewall show rule name="UplayOfflineModee" | findstr "no rules"', shell=True, stdout=DEVNULL, stderr=DEVNULL):
+    addRule()
+
+sys.exit()
+
 def curSts():
     print("Enabled:", "True" if subprocess.call('netsh advfirewall firewall show rule name="UplayOfflineMode" | findstr "No" | findstr /V "Edge"',\
      shell=True, stdout=DEVNULL, stderr=DEVNULL) else "False")
-    # return [subprocess.call('netsh advfirewall firewall show rule name="UplayOfflineMode" | findstr "no rules"', shell=True, stdout=DEVNULL, stderr=DEVNULL), \
-    # subprocess.call('netsh advfirewall firewall show rule name="UplayOfflineMode" | findstr "No" | findstr /V "Edge"', shell=True, stdout=DEVNULL, stderr=DEVNULL)]
 
 print("Current Status")
 curSts()
