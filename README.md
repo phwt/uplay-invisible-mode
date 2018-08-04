@@ -1,6 +1,6 @@
 # Uplay Offline Mode
 
-Commandline for enabling/disabling offline mode for Ubisoft Uplay Client
+Program for enabling/disabling offline mode for Ubisoft Uplay Client
 
 ## Features
 
