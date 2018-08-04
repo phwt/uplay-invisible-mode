@@ -35,18 +35,31 @@ If not you will be prompted into pointing out the correct path of the `upc.exe` 
 
 **After that Windows Firewall Outbound rules "UplayOfflineMode" will be created.**
 
-### 2. Run `enable_rule.bat` with admin rights
+### 3. Finish!
 
-Rule is disabled by default you need to run this to enable it.
-
-After you finish testing you can run `disable_rule.bat`(with admin rights) to disable them.
+The status will be shown and you are now ready to use!
 
 ## How to use
 
-After you have done the set-up step.
+### Run `upcoffline.exe` with admin rights
 
-- Use `enable_rule.bat` to enable offline/invisible mode. (With admin rights)
-- Use `disable_rule.bat` to disable offline/invisible mode. (With admin rights)
+The status will be shown similar to this:
+
+    Current Status
+    Enabled: <Your current status>
+    
+    Change Rule Status (0 = Disable, 1 = Enable, -1 = Exit): 
+
+You can config the rule by typing in `1` to enable or `0` for disable and then press `Enter`
+
+After that the program will show you your new rule status.
+
+    Rule Status Updated
+    Enabled: True
+    
+    Change Rule Status (0 = Disable, 1 = Enable, -1 = Exit):
+    
+When you are done type in anything except `0` or `1` or just simply press the `X` button on top-right corner and the process will be terminated.
 
 Note: Don't enable before you launch the game or your game will not be able to launch. And disable it before you close the game (for cloud synchronization)
 
