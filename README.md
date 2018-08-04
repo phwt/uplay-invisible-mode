@@ -75,9 +75,6 @@ You can check the status by noticing Error Text appear at the bottom, Friend lis
 
 If all this applies your Uplay are now completely offlined! Enjoy!
 
-When you are done type in anything except `0` or `1` or just simply press the `X` button on top-right corner and the process will be terminated.
+### 5. When you are done.
 
-### Notes
-
-- Don't enable before you launch the game or your game will not be able to launch. And disable it before you close the game (for cloud synchronization)
-- Enabling this will not instantly put you in offline mode. It may took about 30s - 1m for you to be completely offline. Same for disabling it took about 30s - 1m to appear online again.
+When you have finished your game. Quit the game then type in `0` to disable the rule. Same for enabling you will not instantly online. After Uplay client has established connection with the server. You can now sync your progress with the cloud.
