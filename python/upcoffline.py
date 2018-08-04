@@ -2,7 +2,6 @@
 #pylint: disable=C0103, C0111, C0410, C0301, C0412, W0611
 import subprocess, ctypes, os, sys
 from subprocess import Popen, DEVNULL
-# import tkinter
 
 def chkAdmin():
     try:
@@ -40,4 +39,3 @@ while True:
         enable()
     else:
         break
-# tkinter._test()
