@@ -1,6 +1,8 @@
-# Uplay Offline Mode
+# Uplay Offline Mode (.BAT Version)
 
 Commandline for enabling/disabling offline mode for Ubisoft Uplay Client
+
+### Notes - This version is no longer updated. Consider using python version instead.
 
 ## Features
 
