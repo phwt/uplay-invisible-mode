@@ -14,17 +14,21 @@ if not chkAdmin():
     sys.exit()
 
 def addRule():
-    if not os.path.isfile('C:\\Program Files (x86)\\Ubisoft\\Ubisoft Game Launcher\\upce.exe'):
+    path = "\"%ProgramFiles% (x86)\\Ubisoft\\Ubisoft Game Launcher\\upc.exe\""
+    if not os.path.isfile('C:\\Program Files (x86)\\Ubisoft\\Ubisoft Game Launcher\\upc.exe'):
         print("\"upc.exe\" is not located in its default location")
         print("(Default: \"C:\\Program Files (x86)\\Ubisoft\\Ubisoft Game Launcher\\upc.exe\")")
         print("\nPlease enter full path to \"upc.exe\"")
-        input("> ")
-    print("Adding \"UplayOfflineMode\" to Windows Firewall Outbound Rules")
+        path = "\"" + input("> ") + "\""
+        if not os.path.isfile(path.strip("\"")):
+            print("Invalid Path or File does not exist. The process will be started over.\n")
+            addRule()
+            return
+    subprocess.call("netsh advfirewall firewall add rule name=\"UplayOfflineMode\" dir=out action=block enable=no program=" + path, shell=True, stdout=DEVNULL, stderr=DEVNULL)
+    print("\nWindows Firewall Outbound Rules \"UplayOfflineMode\" added\n")
 
-if not subprocess.call('netsh advfirewall firewall show rule name="UplayOfflineModee" | findstr "no rules"', shell=True, stdout=DEVNULL, stderr=DEVNULL):
+if not subprocess.call('netsh advfirewall firewall show rule name="UplayOfflineMode" | findstr "no rules"', shell=True, stdout=DEVNULL, stderr=DEVNULL):
     addRule()
-
-sys.exit()
 
 def curSts():
     print("Enabled:", "True" if subprocess.call('netsh advfirewall firewall show rule name="UplayOfflineMode" | findstr "No" | findstr /V "Edge"',\
@@ -34,12 +38,12 @@ print("Current Status")
 curSts()
 
 while True:
-    sts = input("\nChange Rule Status (0 = Disable, 1 = Enable, Return = Exit): ")
+    sts = input("\nChange Rule Status (0 = Disable, 1 = Enable, -1 = Exit): ")
     if sts == "0":
         subprocess.call('netsh advfirewall firewall set rule name="UplayOfflineMode" new enable=no', shell=True, stdout=DEVNULL, stderr=DEVNULL)
     elif sts == "1":
         subprocess.call('netsh advfirewall firewall set rule name="UplayOfflineMode" new enable=yes', shell=True, stdout=DEVNULL, stderr=DEVNULL)
     else:
         break
-    print("Rule Status Updated")
+    print("\nRule Status Updated")
     curSts()
