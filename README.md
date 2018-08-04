@@ -41,7 +41,7 @@ The status will be shown and you are now ready to use!
 
 ## How to use
 
-### Run `upcoffline.exe` with admin rights
+### 1. Run `upcoffline.exe` with admin rights
 
 The status will be shown similar to this:
 
@@ -49,6 +49,8 @@ The status will be shown similar to this:
     Enabled: <Your current status>
     
     Change Rule Status (0 = Disable, 1 = Enable, -1 = Exit): 
+
+### 2. Enable or Disable the rule
 
 You can config the rule by typing in `1` to enable or `0` for disable and then press `Enter`
 
@@ -58,9 +60,12 @@ After that the program will show you your new rule status.
     Enabled: True
     
     Change Rule Status (0 = Disable, 1 = Enable, -1 = Exit):
+
+### 3. Exit
     
 When you are done type in anything except `0` or `1` or just simply press the `X` button on top-right corner and the process will be terminated.
 
-Note: Don't enable before you launch the game or your game will not be able to launch. And disable it before you close the game (for cloud synchronization)
+### Notes
 
-Enabling this will not instantly put you in offline mode. It may took about 30s - 1m for you to be completely offline. Same for disabling it took about 30s - 1m to appear online again.
+- Don't enable before you launch the game or your game will not be able to launch. And disable it before you close the game (for cloud synchronization)
+- Enabling this will not instantly put you in offline mode. It may took about 30s - 1m for you to be completely offline. Same for disabling it took about 30s - 1m to appear online again.
