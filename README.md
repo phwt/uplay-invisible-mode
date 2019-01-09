@@ -7,7 +7,7 @@ Add Invisible mode for your Uplay client.
 - **Invisibility** Appear as offline to your friends but still be able to access in-game online services.
 
 Disabled Features
-- Friend List (including invitation to game)
+- Friend List (including an invitation to the game)
 - News Section, Store
 
 ## How it works?
@@ -21,6 +21,8 @@ The application will block the connection of `upc.exe` which transmit your onlin
 ### 1. Extract ALL files from .zip file
 
 You will extract some files and folders including `upcinvisible.exe` file.
+
+**There are a lot of files extracted. So I recommend to place the files somewhere and create a shortcut for `upcinvisible.exe` from there** (Will fix in the later version)
 
 ### 2. Run `upcinvisible.exe` with admin rights
 
@@ -45,11 +47,11 @@ You will see like this in the application do not enable it yet.
 
 Simply just click **Play** button at your game. **Do not enable until the `Synchronization with the cloud` dialog disappear** after that you can click on `Enable`.
 
-**This will not instantly offline your Uplay status. It may took about minute or half for you to completely appear offline to your friends.**
+**This will not instantly offline your Uplay status. It may take about a minute or half for you to completely appear offline to your friends.**
 
 ### 3. Enjoy!
 
-You can check if it working or not by noticing Error appear at bottom, Friend list appear as `Connecting...` and Store inaccessible.
+You can check if it working or not by noticing Error appear at the bottom, Friend list appear as `Connecting...` and Store inaccessible.
 
 ![Example](https://raw.githubusercontent.com/phwt/uplay-offline-mode/master/offline_example.jpg)
 
@@ -57,7 +59,7 @@ If all this applies you are now completely invisible. Enjoy!
 
 ### 4. Disabling
 
-When you have finished your game. Quit the game and click on `Disable` button (Like when enabling you will not immidiately online). After your Uplay client has established connection with the server. You can now sync your progress with the cloud.
+When you have finished your game. Quit the game and click on `Disable` button (Like when enabling you will not immediately online). After your Uplay client has established the connection with the server. You can now sync your progress with the cloud.
 
 ## Built-With
 
