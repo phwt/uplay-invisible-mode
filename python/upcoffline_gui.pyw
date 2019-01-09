@@ -4,9 +4,14 @@ When enabled All online services will be disabled but in-game services will stil
 from tkinter import filedialog, messagebox
 from tkinter import *
 from tkinter.ttk import *
-import pathlib
+import subprocess, ctypes, sys, pathlib
 
-from netsh_function import *
+netsh_call = lambda i: subprocess.call(i, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+check_rule = lambda: netsh_call('netsh advfirewall firewall show rule name="Uplay Invisible Mode" | findstr "no rules"')
+status = lambda: netsh_call('netsh advfirewall firewall show rule name="Uplay Invisible Mode" | findstr "No" | findstr /V "Edge"')
+add_rule = lambda i: netsh_call(f'netsh advfirewall firewall add rule name="Uplay Invisible Mode" dir=out action=block enable=no program={i}')
+toggle_rule = lambda: netsh_call(f'netsh advfirewall firewall set rule name="Uplay Invisible Mode" new enable={"yes" if not status() else "no"}')
 
 def check_admin():
     """ Prompt user with UAC dialog if the application is not run with administrator rights """
@@ -23,9 +28,19 @@ def gui_main():
     main = Tk()
     main.resizable(0,0)
 
+    def toggle():
+        toggle_rule()
+        statusText.set(f"Status: {'Enabled' if status() else 'Disabled'}")
+        buttonText.set('Enable' if not status() else 'Disable')
+
+    statusText, buttonText = StringVar(), StringVar()
+    
+    statusText.set(f"Status: {'Enabled' if status() else 'Disabled'}")
+    buttonText.set('Enable' if not status() else 'Disable')
+
     Label(main, text="Uplay Invisible Mode", font='Helvetica 11 bold').grid(row=0, column=0, padx=(30, 30), pady=(20, 10))
-    Label(main, text=f"Status: {'Enabled' if status() else 'Disabled'}").grid(row=1, column=0)
-    Button(main, text='Enable' if not status() else 'Disable').grid(row=2, column=0, pady=(5, 20))
+    Label(main, textvariable=statusText).grid(row=1, column=0)
+    Button(main, textvariable=buttonText, command=toggle).grid(row=2, column=0, pady=(5, 20))
 
     main.mainloop()
 
@@ -46,7 +61,7 @@ def gui_setup():
                 return
             continue
         
-        add_rule(file_path=pathlib.WindowsPath(filename))
+        add_rule(pathlib.WindowsPath(filename))
         messagebox.showinfo("Rule added", "Setup is now complete. Please reopen the application")
         return False
     return True
