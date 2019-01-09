@@ -2,7 +2,7 @@ from cx_Freeze import setup, Executable
 
 base = None    
 
-executables = [Executable("upcoffline.py", base=base)]
+executables = [Executable("upcoffline_gui.pyw", base=base)]
 
 packages = ["idna"]
 options = {
@@ -14,6 +14,6 @@ options = {
 setup(
     name = "Uplay Invisible Mode",
     options = options,
-    version = "0.1",
+    version = "2.0",
     executables = executables
 )
