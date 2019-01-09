@@ -1,10 +1,10 @@
-# Uplay Offline Mode
+# Uplay Invisible Mode
 
-Program for enabling/disabling offline mode for Ubisoft Uplay Client
+Add Invisible mode for your Uplay client.
 
 ## Features
 
-- Appear as offline to your friends but still be able to access in-game online services.
+- **Invisibility** Appear as offline to your friends but still be able to access in-game online services.
 
 Disabled Features
 - Friend List (including invitation to game)
@@ -12,36 +12,23 @@ Disabled Features
 
 ## How it works?
 
-The program will block connection of a Uplay Client which transmit your current status to your friend. But your game connection is not blocked so you can sill access online services in your game.
+The application will block the connection of `upc.exe` which transmit your online status to your friends. Your game connection will not be affected as this only blocks Uplay Client connection.
 
 ## Set-up
 
-First download `upc_invisible.zip` [here!](
-https://github.com/phwt/uplay-offline-mode/raw/master/python/build/exe.win32-3.6/upc_invisible.zip)
-
-Administrator rights is required to run the program.
+#### [Download the latest release here](https://github.com/phwt/uplay-invisible-mode/releases)
 
 ### 1. Extract ALL files from .zip file
 
-Make sure you have all these files and folder.
+You will extract some files and folders including `upcinvisible.exe` file.
 
-    - lib
-    - python36.dll
-    - upcoffline.exe
+### 2. Run `upcinvisible.exe` with admin rights
 
-### 2. Run `upcoffline.exe` with admin rights
-
-You will get `Windows Firewall Outbound Rules "UplayOfflineMode" added` if your `upc.exe` file is in its default location. (Default location is: `C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\upc.exe`)
-
-If not you will be prompted into pointing out the correct path of the `upc.exe` files.
-
-*Example Valid Path - `K:/My Program/Ubisoft Game Launchery/upc.exe`*
-
-**After that Windows Firewall Outbound rules "UplayOfflineMode" will be created.**
+The application will prompt you to select `upc.exe` from your Uplay installation folder (Default path: `C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\upc.exe`) and Windows Firewall Outbound rule "Uplay Invisible Mode" will be created.
 
 ### 3. Finish!
 
-The status will be shown and you are now ready to use!
+The application will close and you are now ready to use.
 
 ## How to use
 
@@ -82,3 +69,24 @@ If all this applies your Uplay are now completely offlined! Enjoy!
 ### 5. When you are done.
 
 When you have finished your game. Quit the game then type in `0` and press `Enter` to disable the rule. Same for enabling you will not instantly online. After Uplay client has established connection with the server. You can now sync your progress with the cloud.
+
+## Built-With
+
+- Python `3.7`
+  - tkinter `8.6`
+  - pyinstaller `3.4`
+
+## Development setup
+
+Install required library
+
+    pip install PyInstaller
+
+### Directory Structure
+- `upcinvisible.py` - Application's main file
+- `uplay_icon.ico` - Application's icon file
+
+### Build
+Build the application using `pyinstaller`
+
+    pyinstaller --noconsole --icon=uplay_icon.ico upcinvisible.py
