@@ -32,43 +32,32 @@ The application will close and you are now ready to use.
 
 ## How to use
 
-### 1. Launch Uplay and the game.
+### 1. Run `upcinvisible.exe` with admin rights and launch Uplay client
 
-You need to launch Uplay and game before enable the rule or you will not be able to establish connection with its server. You can continue when you game is fully started.
+You will see like this in the application do not enable it yet.
 
-**In this phase your Uplay will still appear online to your friends**
-
-### 2. Run `upcoffline.exe` with admin rights
-
-The status will be shown similar to this:
-
-    Current Status
-    Enabled: False
+    Status: Disabled
+    [Enable]
     
-    Change Rule Status (0 = Disable, 1 = Enable, -1 = Exit): 
+**In this phase you will still appear online to your friends**
 
-### 3. Enable the rule
+### 2. Start the game and click `Enable` to enable invisible mode
 
-Typing `1` then press `Enter` and the status will be shown similar to this:
+Simply just click **Play** button at your game. **Do not enable until the `Synchronization with the cloud` dialog disappear** after that you can click on `Enable`.
 
-    Rule Status Updated
-    Enabled: True
-    
-    Change Rule Status (0 = Disable, 1 = Enable, -1 = Exit):
+**This will not instantly offline your Uplay status. It may took about minute or half for you to completely appear offline to your friends.**
 
-**This will not instantly offline your Uplay status. It may took about 30s to 1m for you to completely appear offline to your friends.**
+### 3. Enjoy!
 
-### 4. Enjoy your game!
-
-You can check the status by noticing Error Text appear at the bottom, Friend list appear as `Connecting...` and Store inaccessible.
+You can check if it working or not by noticing Error appear at bottom, Friend list appear as `Connecting...` and Store inaccessible.
 
 ![Example](https://raw.githubusercontent.com/phwt/uplay-offline-mode/master/offline_example.jpg)
 
-If all this applies your Uplay are now completely offlined! Enjoy!
+If all this applies you are now completely invisible. Enjoy!
 
-### 5. When you are done.
+### 4. Disabling
 
-When you have finished your game. Quit the game then type in `0` and press `Enter` to disable the rule. Same for enabling you will not instantly online. After Uplay client has established connection with the server. You can now sync your progress with the cloud.
+When you have finished your game. Quit the game and click on `Disable` button (Like when enabling you will not immidiately online). After your Uplay client has established connection with the server. You can now sync your progress with the cloud.
 
 ## Built-With
 
@@ -90,3 +79,5 @@ Install required library
 Build the application using `pyinstaller`
 
     pyinstaller --noconsole --icon=uplay_icon.ico upcinvisible.py
+
+You will find your files at `/dist/upcinvisible`
