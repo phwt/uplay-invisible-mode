@@ -260,6 +260,5 @@ paket-files/
 __pycache__/
 __pycache__
 *.pyc
-build/
-build/*
-build
+dist/
+*.spec
