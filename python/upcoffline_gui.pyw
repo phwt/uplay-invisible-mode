@@ -20,13 +20,12 @@ def check_admin():
 
 def gui_main():
     """ Application's main GUI """
-    # kill = lambda: main.destroy()
-
     main = Tk()
     main.resizable(0,0)
 
-    Label(main, text="Status: ").grid(row=0, column=0, padx=(30, 30), pady=(20, 10))
-    Button(main, text="Hello").grid(row=1, column=0, padx=(30, 30), pady=(0, 20))
+    Label(main, text="Uplay Invisible Mode", font='Helvetica 11 bold').grid(row=0, column=0, padx=(30, 30), pady=(20, 10))
+    Label(main, text=f"Status: {'Enabled' if status() else 'Disabled'}").grid(row=1, column=0)
+    Button(main, text='Enable' if not status() else 'Disable').grid(row=2, column=0, pady=(5, 20))
 
     main.mainloop()
 
@@ -35,15 +34,18 @@ def gui_setup():
     while not check_rule():
         root = Tk()
         root.withdraw()
+
         messagebox.showinfo("Rule not found", "Please select \"upc.exe\" from your Uplay installation folder")
         filename = filedialog.askopenfilename(initialdir='C:\\Program Files (x86)\\Ubisoft\\Ubisoft Game Launcher',
             title="Select upc.exe",
             filetypes=(("Executable file","*.exe"),)
         )
+
         if "upc.exe" not in filename.lower() or filename == "":
             if not messagebox.askretrycancel("Error", "Invalid file!"):
                 return
             continue
+        
         add_rule(file_path=pathlib.WindowsPath(filename))
         messagebox.showinfo("Rule added", "Setup is now complete. Please reopen the application")
         return False
