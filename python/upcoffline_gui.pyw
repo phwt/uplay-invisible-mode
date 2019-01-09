@@ -27,6 +27,8 @@ def gui_main():
     """ Application's main GUI """
     main = Tk()
     main.resizable(0,0)
+    main.title("")
+    main.iconbitmap('uplay_icon.ico')
 
     def toggle():
         toggle_rule()
