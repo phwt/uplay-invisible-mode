@@ -10,7 +10,7 @@ netsh_call = lambda i: subprocess.call(i, shell=True, stdout=subprocess.DEVNULL,
 
 check_rule = lambda: netsh_call('netsh advfirewall firewall show rule name="Uplay Invisible Mode" | findstr "no rules"')
 status = lambda: netsh_call('netsh advfirewall firewall show rule name="Uplay Invisible Mode" | findstr "No" | findstr /V "Edge"')
-add_rule = lambda i: netsh_call(f'netsh advfirewall firewall add rule name="Uplay Invisible Mode" dir=out action=block enable=no program={i}')
+add_rule = lambda i: netsh_call(f'netsh advfirewall firewall add rule name="Uplay Invisible Mode" dir=out action=block enable=no program="{i}"')
 toggle_rule = lambda: netsh_call(f'netsh advfirewall firewall set rule name="Uplay Invisible Mode" new enable={"yes" if not status() else "no"}')
 
 def check_admin():
@@ -28,17 +28,15 @@ def gui_main():
     main = Tk()
     main.resizable(0,0)
     main.title("")
-    # main.iconbitmap('uplay_icon.ico')
-
-    def toggle():
-        toggle_rule()
-        statusText.set(f"Status: {'Enabled' if status() else 'Disabled'}")
-        buttonText.set('Enable' if not status() else 'Disable')
+    main.iconbitmap('uplay_icon.ico')
 
     statusText, buttonText = StringVar(), StringVar()
+
+    toggle_status = lambda: (statusText.set(f"Status: {'Enabled' if status() else 'Disabled'}"),\
+                            buttonText.set('Enable' if not status() else 'Disable'),)
+    toggle = lambda: (toggle_rule(), toggle_status())
     
-    statusText.set(f"Status: {'Enabled' if status() else 'Disabled'}")
-    buttonText.set('Enable' if not status() else 'Disable')
+    toggle_status()
 
     Label(main, text="Uplay Invisible Mode", font='Helvetica 11 bold').grid(row=0, column=0, padx=(30, 30), pady=(20, 10))
     Label(main, textvariable=statusText).grid(row=1, column=0)
