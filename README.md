@@ -22,30 +22,37 @@ The application will block the connection of `upc.exe` which transmit your onlin
 
 You will extract some files and folders including `upcinvisible.exe` file.
 
-**There are a lot of files extracted. So I recommend to place the files somewhere and create a shortcut for `upcinvisible.exe` from there** (Will fix in the later version)
+![The files](https://raw.githubusercontent.com/phwt/uplay-offline-mode/master/img/00_files.JPG)
+
+**There are a lot of files extracted. So I recommend to place the files somewhere and create a shortcut for `upcinvisible.exe` from there**
 
 ### 2. Run `upcinvisible.exe` with admin rights
 
 The application will prompt you to select `upc.exe` from your Uplay installation folder (Default path: `C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\upc.exe`) and Windows Firewall Outbound rule "Uplay Invisible Mode" will be created.
 
+![Select upc.exe](https://raw.githubusercontent.com/phwt/uplay-offline-mode/master/img/01_exe_select.JPG)
+
 ### 3. Finish!
 
 The application will close and you are now ready to use.
+
+![Finish!](https://raw.githubusercontent.com/phwt/uplay-offline-mode/master/img/02_setup_finish.JPG)
 
 ## How to use
 
 ### 1. Run `upcinvisible.exe` with admin rights and launch Uplay client
 
-You will see like this in the application do not enable it yet.
+You will see like this in the application do and not enable it yet.
 
-    Status: Disabled
-    [Enable]
-    
+![Main screen](https://raw.githubusercontent.com/phwt/uplay-offline-mode/master/img/03_mainscreen.JPG)
+
 **In this phase you will still appear online to your friends**
 
 ### 2. Start the game and click `Enable` to enable invisible mode
 
-Simply just click **Play** button at your game. **Do not enable until the `Synchronization with the cloud` dialog disappear** after that you can click on `Enable`.
+Simply just click **Play** button at your game. **Do not enable until the `Synchronization your save games with the cloud` dialog disappear** after that you can click on `Enable`.
+
+![Synchronization your save games with the cloud](https://raw.githubusercontent.com/phwt/uplay-offline-mode/master/img/04_uplay_sync.jpg)
 
 **This will not instantly offline your Uplay status. It may take about a minute or half for you to completely appear offline to your friends.**
 
@@ -53,7 +60,7 @@ Simply just click **Play** button at your game. **Do not enable until the `Synch
 
 You can check if it working or not by noticing Error appear at the bottom, Friend list appear as `Connecting...` and Store inaccessible.
 
-![Example](https://raw.githubusercontent.com/phwt/uplay-offline-mode/master/offline_example.jpg)
+![Example](https://raw.githubusercontent.com/phwt/uplay-offline-mode/master/img/offline_example.jpg)
 
 If all this applies you are now completely invisible. Enjoy!
 
