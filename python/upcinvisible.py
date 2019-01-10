@@ -4,7 +4,7 @@ When enabled All online services will be disabled but in-game services will stil
 from tkinter import filedialog, messagebox
 from tkinter import *
 from tkinter.ttk import *
-import subprocess, ctypes, sys, pathlib
+import subprocess, ctypes, sys, pathlib, webbrowser
 
 netsh_call = lambda i: subprocess.call(i, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
@@ -29,6 +29,16 @@ def gui_main():
     main.resizable(0,0)
     main.title("")
     main.iconbitmap('uplay_icon.ico')
+
+    menubar = Menu(main)
+    filemenu = Menu(menubar, tearoff=0)
+    filemenu.add_command(label="Settings", command=gui_settings)
+    filemenu.add_separator()
+    filemenu.add_command(label="Exit", command=main.quit)
+    menubar.add_cascade(label="File", menu=filemenu)
+
+    menubar.add_command(label="About", command=gui_about)
+    main.config(menu=menubar)
 
     statusText, buttonText = StringVar(), StringVar()
 
@@ -65,6 +75,34 @@ def gui_setup():
         messagebox.showinfo("Rule added", "Setup is now complete. Please reopen the application")
         return False
     return True
+
+def gui_settings():
+    """ UI for application's settings """
+    settings = Tk()
+    settings.resizable(0,0)
+    settings.title("Settings")
+    settings.iconbitmap('uplay_icon.ico')
+
+    Label(settings, text="Settings", font='Helvetica 10 bold').grid(row=0, column=0, pady=(20, 10))
+    Button(settings, text="Change \"upc.exe\" location").grid(row=1, column=0, padx=(40, 40))
+    Button(settings, text="Remove \"Uplay Invisible Mode\" rule").grid(row=2, column=0, pady=(5, 20))
+
+    settings.mainloop()
+
+def gui_about():
+    """ UI for application's about """
+    about = Tk()
+    about.resizable(0,0)
+    about.title("About")
+    about.iconbitmap('uplay_icon.ico')
+    
+    giturl = lambda: webbrowser.open("https://github.com/phwt/uplay-invisible-mode")
+
+    Label(about, text="Uplay Invisible Mode - 2.1", font='Helvetica 10 bold').grid(row=0, column=0, padx=(40, 40), pady=(20, 10))
+    Label(about, text="By - phwt").grid(row=1, column=0)
+    Button(about, text="View this project on GitHub", command=giturl).grid(row=2, column=0, pady=(5, 20))
+
+    about.mainloop()
 
 if __name__ == '__main__':
     check_admin()
