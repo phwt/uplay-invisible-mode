@@ -63,9 +63,10 @@ When you have finished your game. Quit the game and click on `Disable` button (L
 
 ## Built-With
 
-- Python `3.7`
+- Python `3.6.3`
   - tkinter `8.6`
-  - pyinstaller `3.4`
+  - ~~pyinstaller `3.4`~~
+  - cx_Freeze `5.0.2`
 
 ## Development setup
 
@@ -78,8 +79,8 @@ Install required library
 - `uplay_icon.ico` - Application's icon file
 
 ### Build
-Build the application using `pyinstaller`
+Build the application using `cx_Freeze`
 
-    pyinstaller --noconsole --icon=uplay_icon.ico upcinvisible.py
+    py -3.6 setup.py build
 
-You will find your files at `/dist/upcinvisible`
+You will find your files at `\build\exe.win-amd64-3.6` and don't forget to put `uplay_icon.ico` along with the `.exe` file.
