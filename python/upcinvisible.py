@@ -63,7 +63,7 @@ def gui_setup():
         messagebox.showinfo("Rule not found", "Please select \"upc.exe\" from your Uplay installation folder")
         filename = filedialog.askopenfilename(initialdir='C:\\Program Files (x86)\\Ubisoft\\Ubisoft Game Launcher',
             title="Select upc.exe",
-            filetypes=(("Executable file","*.exe"),)
+            filetypes=(("\"upc.exe\" Executable file","upc.exe"),)
         )
 
         if "upc.exe" not in filename.lower() or filename == "":
@@ -86,9 +86,20 @@ def gui_settings():
 
     delete_rule = lambda: netsh_call('netsh advfirewall firewall delete rule name="Uplay Invisible Mode"')
 
+    def remove_rule():
+        """ Remove "Uplay Invisible Mode" rule """
+        delete_rule()
+        messagebox.showinfo("Rule removed", "Rule removed. The application will now close")
+        sys.exit()
+    def change_location():
+        """ Change "upc.exe" location """
+        delete_rule()
+        gui_setup()
+        sys.exit()
+
     Label(settings, text="Settings", font='Helvetica 10 bold').grid(row=0, column=0, pady=(20, 10))
-    Button(settings, text="Change \"upc.exe\" location").grid(row=1, column=0, padx=(40, 40))
-    Button(settings, text="Remove \"Uplay Invisible Mode\" rule", command=delete_rule).grid(row=2, column=0, pady=(5, 20))
+    Button(settings, text="Change \"upc.exe\" location", command=change_location).grid(row=1, column=0, padx=(40, 40))
+    Button(settings, text="Remove \"Uplay Invisible Mode\" rule", command=remove_rule).grid(row=2, column=0, pady=(5, 20))
 
     settings.mainloop()
 
