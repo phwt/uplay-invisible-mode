@@ -20,11 +20,11 @@ The application will block the connection of `upc.exe` which transmit your onlin
 
 ### 1. Extract ALL files from .zip file
 
-You will extract some files and folders including `upcinvisible.exe` file.
+Extracted contents will contains some files and folders including `upcinvisible.exe` file.
 
 ![The files](https://raw.githubusercontent.com/phwt/uplay-offline-mode/master/img/00_files.JPG)
 
-**There are a lot of files extracted. So I recommend to place the files somewhere and create a shortcut for `upcinvisible.exe` from there**
+**There are a lot of files extracted. So it is recommended to place the files somewhere and create a shortcut for `upcinvisible.exe` from there**
 
 ### 2. Run `upcinvisible.exe` with admin rights
 
