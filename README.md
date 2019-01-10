@@ -72,7 +72,7 @@ When you have finished your game. Quit the game and click on `Disable` button (L
 
 Install required library
 
-    pip install PyInstaller
+    pip install cx_Freeze
 
 ### Directory Structure
 - `upcinvisible.py` - Application's main file
@@ -81,6 +81,6 @@ Install required library
 ### Build
 Build the application using `cx_Freeze`
 
-    py -3.6 setup.py build
+    py setup.py build
 
 You will find your files at `\build\exe.win-amd64-3.6` and don't forget to put `uplay_icon.ico` along with the `.exe` file.
