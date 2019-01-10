@@ -8,11 +8,6 @@ import subprocess, ctypes, sys, pathlib, webbrowser
 
 netsh_call = lambda i: subprocess.call(i, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-check_rule = lambda: netsh_call('netsh advfirewall firewall show rule name="Uplay Invisible Mode" | findstr "no rules"')
-status = lambda: netsh_call('netsh advfirewall firewall show rule name="Uplay Invisible Mode" | findstr "No" | findstr /V "Edge"')
-add_rule = lambda i: netsh_call(f'netsh advfirewall firewall add rule name="Uplay Invisible Mode" dir=out action=block enable=no program="{i}"')
-toggle_rule = lambda: netsh_call(f'netsh advfirewall firewall set rule name="Uplay Invisible Mode" new enable={"yes" if not status() else "no"}')
-
 def check_admin():
     """ Prompt user with UAC dialog if the application is not run with administrator rights """
     try:
@@ -42,6 +37,9 @@ def gui_main():
 
     statusText, buttonText = StringVar(), StringVar()
 
+    status = lambda: netsh_call('netsh advfirewall firewall show rule name="Uplay Invisible Mode" | findstr "No" | findstr /V "Edge"')
+    toggle_rule = lambda: netsh_call(f'netsh advfirewall firewall set rule name="Uplay Invisible Mode" new enable={"yes" if not status() else "no"}')
+
     toggle_status = lambda: (statusText.set(f"Status: {'Enabled' if status() else 'Disabled'}"),\
                             buttonText.set('Enable' if not status() else 'Disable'),)
     toggle = lambda: (toggle_rule(), toggle_status())
@@ -56,6 +54,8 @@ def gui_main():
 
 def gui_setup():
     """ UI for rule checking and adding process """
+    check_rule = lambda: netsh_call('netsh advfirewall firewall show rule name="Uplay Invisible Mode" | findstr "no rules"')
+
     while not check_rule():
         root = Tk()
         root.withdraw()
@@ -70,7 +70,8 @@ def gui_setup():
             if not messagebox.askretrycancel("Error", "Invalid file!"):
                 return
             continue
-        
+
+        add_rule = lambda i: netsh_call(f'netsh advfirewall firewall add rule name="Uplay Invisible Mode" dir=out action=block enable=no program="{i}"')
         add_rule(pathlib.WindowsPath(filename))
         messagebox.showinfo("Rule added", "Setup is now complete. Please reopen the application")
         return False
@@ -83,9 +84,11 @@ def gui_settings():
     settings.title("Settings")
     settings.iconbitmap('uplay_icon.ico')
 
+    delete_rule = lambda: netsh_call('netsh advfirewall firewall delete rule name="Uplay Invisible Mode"')
+
     Label(settings, text="Settings", font='Helvetica 10 bold').grid(row=0, column=0, pady=(20, 10))
     Button(settings, text="Change \"upc.exe\" location").grid(row=1, column=0, padx=(40, 40))
-    Button(settings, text="Remove \"Uplay Invisible Mode\" rule").grid(row=2, column=0, pady=(5, 20))
+    Button(settings, text="Remove \"Uplay Invisible Mode\" rule", command=delete_rule).grid(row=2, column=0, pady=(5, 20))
 
     settings.mainloop()
 
