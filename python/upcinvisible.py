@@ -15,7 +15,10 @@ def check_admin():
     except AttributeError:
         isAdmin = False
     if not isAdmin:
-        ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, __file__, None, 1)
+        if getattr(sys, 'frozen', False):
+            ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, sys.executable, None, 1)
+        else:
+            ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, __file__, None, 1)
         sys.exit()
 
 def gui_main():
@@ -112,9 +115,10 @@ def gui_about():
     
     giturl = lambda: webbrowser.open("https://github.com/phwt/uplay-invisible-mode")
 
-    Label(about, text="Uplay Invisible Mode - 2.1", font='Helvetica 10 bold').grid(row=0, column=0, padx=(40, 40), pady=(20, 10))
+    Label(about, text="Uplay Invisible Mode - 2.1", font='Helvetica 10 bold').grid(row=0, column=0, pady=(20, 10))
     Label(about, text="By - phwt").grid(row=1, column=0)
-    Button(about, text="View this project on GitHub", command=giturl).grid(row=2, column=0, pady=(5, 20))
+    Button(about, text="View this project on GitHub", command=giturl).grid(row=1, column=0)
+    Label(about, text="This project is not affiliated with Ubisoft Entertainment").grid(row=2, column=0, padx=(30, 30), pady=(5, 20))
 
     about.mainloop()
 
