@@ -1,0 +1,13 @@
+﻿<Window x:Class="UPCInvisible.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UPCInvisible"
+        mc:Ignorable="d"
+        Title="Uplay Invisible Mode" Height="450" Width="800">
+    <Grid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="111,103,0,0" VerticalAlignment="Top" Height="33" Width="322"/>
+
+    </Grid>
+</Window>
