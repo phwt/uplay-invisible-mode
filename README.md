@@ -42,7 +42,7 @@ The application will close and you are now ready to use.
 
 ### 1. Run `upcinvisible.exe` with admin rights and launch Uplay client
 
-You will see like this in the application do and not enable it yet.
+You will see like this in the application **do not** enable it yet.
 
 ![Main screen](https://raw.githubusercontent.com/phwt/uplay-offline-mode/master/img/03_mainscreen.JPG)
 
