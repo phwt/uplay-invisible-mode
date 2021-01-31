@@ -2,6 +2,10 @@
 
 Add Invisible mode for your Uplay client.
 
+## Discontinued
+
+Invisible mode is now available officially within the Ubisoft Connect (formely Uplay). So this repository will be archived and discontinued. Thanks everyone for using this and sorry for not responding to the opened issues.
+
 ## Features
 
 - **Invisibility** Appear as offline to your friends but still be able to access in-game online services.
